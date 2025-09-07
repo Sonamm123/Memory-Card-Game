@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Card Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+  <div class="game-container">
+    <h1>Memory Card Game</h1>
+
+    <div class="controls">
+      <button id="restart">Restart Game</button>
+
+      <select id="themeToggle">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="neon">Neon</option>
+      </select>
+
+      <select id="modeToggle">
+        <option value="2p">2 Players</option>
+        <option value="cpu">Vs CPU</option>
+      </select>
+    </div>
+
+    <div id="status">Player 1's Turn</div>
+    <div id="gameBoard" class="game-board"></div>
+
+    <!-- Winner Modal -->
+    <div id="winnerModal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="winnerText"></h2>
+        <button id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="winSound" src="sounds/win.mp3" preload="auto"></audio>
+  <audio id="drawSound" src="sounds/draw.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

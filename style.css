@@ -1,0 +1,117 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+.game-container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 10px;
+}
+
+.controls {
+  margin: 15px 0;
+}
+
+button, select {
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+.card {
+  width: 90%;
+  padding-top: 100%; /* keeps aspect ratio */
+  background: #ccc;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  transition: transform 0.5s;
+}
+
+.card span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card.flipped {
+  background: #fff;
+}
+
+.card.matched {
+  background: lightgreen;
+  pointer-events: none;
+  animation: pop 0.5s ease;
+}
+
+#status {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Themes */
+body.light {
+  background: #f4f4f4;
+  color: #000;
+}
+body.dark {
+  background: #222;
+  color: #fff;
+}
+body.neon {
+  background: #0f0f0f;
+  color: #ff1443;
+}
+body.neon .card {
+  background: #bbd381;
+  border: 2px solid #39ff14;
+}
